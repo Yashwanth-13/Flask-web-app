@@ -19,7 +19,6 @@
         		border-style: solid;
         		margin-left : 7%;
 				height: 25px;
-        		padding-right: 20%;
         		border-radius: 10px;
         	}
         	
@@ -43,6 +42,13 @@
         		color: orange;
         		padding-left: 3%;
         	}
+
+			#max{
+				width: 300px;
+			}
+			@media (max-width : 998px) and (min-width: 412px)  {
+				#max {width: 130px;}
+			}
         </style>
         <link rel="stylesheet" href="../static/styles/style.css">
     </head>
@@ -53,10 +59,10 @@
 	<div class="inputbox">
 		<h1 style="text-align: center; font-size: 23px; color: orange; padding-top: 4%;">Welcome back!</h1>
 		<p style="padding-top: 4%;">Username :</p>
-		<input type="text" placeholder="It goes here..." maxsize="10">
+		<input type="text" placeholder="It goes here..." id="max">
 		<br>
 		<p>Password : </p>
-		<input type="password" placeholder="This one goes here though.." maxsize="20">
+		<input type="password" placeholder="This one goes here though.." id="max">
 		<br><br><br><br>	
 	</div>
 
