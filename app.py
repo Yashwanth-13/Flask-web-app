@@ -14,6 +14,10 @@ def about():
 def contact():
     return render_template("contact.html")
 
-@app.route('/registration')
+@app.route('/registration', methods=["GET", "POST"])
 def registration():
     return render_template("registration.html")
+
+@app.route('/login')
+def login():
+    return render_template("login.html")
