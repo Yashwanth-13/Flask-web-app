@@ -3,6 +3,7 @@
     <head>
         <title>Registration Page</title>
         <link rel="stylesheet" href="../static/styles/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             .theform {
                 border-style: solid;
@@ -26,9 +27,9 @@
 
             input.cnames {
                 margin-left: 13%;
-                height: 30px;
+                height: 10px;
                 color: rgb(234, 227, 215);
-                font-size: 18px;
+                font-size: 8px;
                 border-radius: 10px;
                 border-style: solid;
                 width: 35%;
@@ -73,31 +74,41 @@
                 width: 40%;
                 background-color: rgba(181, 126, 126, 0.421);
             }
+            @media (min-width: 280px) {
+                h2{
+                    font-size: 15px;
+                }
+                h1{
+                    font-size: 15px;
+                }
+                
+            }
             
         </style>
     </head>
     
     <body>
          
-        <ul style="margin-top: 5%; height: 18%; margin-top: 15%;">
-            <li><a target="_self" href="/">Login!</a></li>
-            <li><a target="_self" href="/registration" class="active">New user?<br>Register Here!</a></li>
+        <ul style="margin-top: 55%; height: 20%;">
+            <li><a target="_self" style="height: 0.1px;" href="/">Login!</a></li>
+            <br><br><br>
+            <li><a target="_self"  style="height: 0.1px;" href="/registration" class="active">New user?<br>Register Here!</a></li>
         </ul>
 
         <form action="/" method="post">
             <div class="testdiv">  
-                <h1 style="text-decoration: none; margin-top: 3%; text-indent: 16%; color:rgb(179, 51, 51);">A new journey awaits.., let's get started!</h1>
+                <h1 style="text-decoration: none; margin-left: -20%; margin-top: 3%; text-indent: 16%; color:rgb(179, 51, 51);">A new journey awaits.., let's get started!</h1>
                 
                 <div class="theform">
                 
                     <h2>What's your first name..?</h2>
-                    <input autofocus class="cnames" type="text" placeholder="Enter it here.." required>
+                    <input autofocus class="cnames" type="text" required>
                     <h2>Now what's your last name..?</h2>
-                    <input class="cnames" type="text" placeholder="Are you a Stark by any chance..?" required>
+                    <input class="cnames" type="text" required>
                     <br>
                     <h2>What is your course..?</h2>
-                    <select required style="color:rgba(9, 9, 4, 0.764)">
-                        <option disabled value="none";">Select</option>
+                    <select style="font-size:10px;height: 20px;" required style="color:rgba(9, 9, 4, 0.764)">
+                        <option disabled value="none";>Select</option>
                         <option value="CSE">Computer Science: Core</option>
                         <option value="CS">Cyber Security</option>
                         <option value="IT">Information Technology</option>
@@ -139,7 +150,7 @@
                     <h2>Re-type your password: <span><input type="password" class="cnames" size="100" style="margin-left: 2px; width: 31%;" required></span></h2>
                     <br>
                     
-                    <input type="submit" class="but" style="margin-left: 45%;" required>
+                    <input type="submit" class="but" style="margin-left: 25%;" required>
                     <input type="reset" class="but" required>
                     <br><br>
                 </div>
