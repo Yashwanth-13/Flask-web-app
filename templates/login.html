@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Login Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
         	.inputbox {
         		
@@ -17,6 +18,7 @@
         	div input {
         		border-style: solid;
         		margin-left : 7%;
+				height: 25px;
         		padding-right: 20%;
         		border-radius: 10px;
         	}
@@ -30,8 +32,6 @@
         		font-size: 16px;
         		border: 1px;
         	}
-        	
-
         	
         	.seperate:hover {
         		background-color: #452a2ab9;
@@ -50,19 +50,34 @@
     </head>
 
     <body>
+<<<<<<< HEAD
+=======
+
+<form action="/home">
+>>>>>>> 26b277699875ac553ed8ddc89948e1631c491e05
 	<div class="inputbox">
 		<h1 style="text-align: center; font-size: 23px; color: orange; padding-top: 4%;">Welcome back!</h1>
-		<p style="padding-top: 4%;">Username please:</p>
+		<p style="padding-top: 4%;">Username :</p>
 		<input type="text" placeholder="It goes here..." maxsize="10">
 		<br>
-		<p>Password please:</p>
-		<input type="text" placeholder="This one goes here though.." maxsize="20">
+		<p>Password : </p>
+		<input type="password" placeholder="This one goes here though.." maxsize="20">
 		<br><br><br><br>	
 	</div>
+<<<<<<< HEAD
 	
 	<input type="submit" class="seperate" value="Submit" style="border-style: solid;">
 	<input type="reset" class="seperate" value="Reset" style="border-style: solid; margin-left: 2%; ">
 	<a href="/registration">Register Here!</a>
+=======
+
+	<input type="submit" class="seperate" value="Submit" style="border-style: solid; height: 35px;">
+	<input type="reset" class="seperate" value="Reset" style="border-style: solid; margin-left: 2%; height: 35px; ">
+
+</form>
+
+	<p style="text-align: center; padding-right: 2%;">Not an existing user? <a href="/registration" style="color: rgb(210, 156, 86);">Register Here</a></p>
+>>>>>>> 26b277699875ac553ed8ddc89948e1631c491e05
 
     </body>
 </html>
