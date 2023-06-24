@@ -17,6 +17,7 @@
         	div input {
         		border-style: solid;
         		margin-left : 7%;
+				height: 25px;
         		padding-right: 20%;
         		border-radius: 10px;
         	}
@@ -50,27 +51,24 @@
     </head>
 
     <body>
-        <ul>
-            <li><a target="_self" href="/" class="top">Home</a></li>
-            <li><a target="_self" href="/about">About us...</a></li>
-            <li><a target="_self" href="/contact">Issue with something..?<br>Contact us!</a></li>
-            <li><a target="_self" href="/login" class="active">Login!</a></li>
-            <li><a target="_self" href="/registration">New user?<br>Register Here!</a></li>
-        </ul>
 
+<form action="/home">
 	<div class="inputbox">
 		<h1 style="text-align: center; font-size: 23px; color: orange; padding-top: 4%;">Welcome back!</h1>
-		<p style="padding-top: 4%;">Username please:</p>
+		<p style="padding-top: 4%;">Username :</p>
 		<input type="text" placeholder="It goes here..." maxsize="10">
 		<br>
-		<p>Password please:</p>
-		<input type="text" placeholder="This one goes here though.." maxsize="20">
+		<p>Password : </p>
+		<input type="password" placeholder="This one goes here though.." maxsize="20">
 		<br><br><br><br>	
 	</div>
-	
-	<input type="submit" class="seperate" value="Submit" style="border-style: solid;">
-	<input type="reset" class="seperate" value="Reset" style="border-style: solid; margin-left: 2%; ">
 
+	<input type="submit" class="seperate" value="Submit" style="border-style: solid; height: 35px;">
+	<input type="reset" class="seperate" value="Reset" style="border-style: solid; margin-left: 2%; height: 35px; ">
+
+</form>
+
+	<p style="text-align: center; padding-right: 2%;">Not an existing user? <a href="/registration" style="color: rgb(210, 156, 86);">Register Here</a></p>
 
     </body>
 </html>
