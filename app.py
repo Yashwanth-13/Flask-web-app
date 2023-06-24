@@ -1,8 +1,14 @@
 from flask import Flask, request, render_template
 
+
+
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
+def login():
+    return render_template("login.html")
+
+@app.route('/home')
 def home():
     return render_template("home.html")
 
@@ -17,7 +23,3 @@ def contact():
 @app.route('/registration', methods=["GET", "POST"])
 def registration():
     return render_template("registration.html")
-
-@app.route('/login')
-def login():
-    return render_template("login.html")
