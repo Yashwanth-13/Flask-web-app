@@ -5,11 +5,6 @@ db = sqlite3.connect("databases/info.db")
 
 cursor = db.cursor()
 
-target_fish_name = "Jamie"
-rows = cursor.execute("SELECT name, species, tank_number FROM fish WHERE name = ?",(target_fish_name,),).fetchall()
-print(rows)
-
-
 
 app = Flask(__name__)
 
@@ -20,8 +15,15 @@ def login():
 @app.route('/home', methods=["GET", "POST"])
 def home():
     if request.method == "POST":
-        
-    return render_template("home.html")
+        username = request.form["username"]
+        password = request.form["password"]
+        user_id = cursor.execute("SELECT id FROM credentials WHERE username = ? AND password = ?", (username, password),).fetchall()
+        if user_id:
+            first_name, last_name = cursor.execute("SELECT first_name, last_name FROM data WHERE data_id = ?", (int(user_id),),).fetchall()
+            return render_template("home.html", {{ first_name }}, {{ last_name }})
+        else:
+            return render_template("invalid_login.html")
+    
 
 @app.route('/about')
 def about():
