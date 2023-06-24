@@ -11,7 +11,7 @@
                 border-radius: 10px;
                 margin-right: 25%;
             }
-
+            
             h2 {
                 color: blanchedalmond;
                 text-indent: 5%;
@@ -46,12 +46,12 @@
                 font-size: 18px;
             }
 
-            option, select {
+            option:default, select{
                 border-style: solid;
                 margin-left: 13%;
                 height: 30px;
                 width: 25%;
-                background-color: rgba(156, 98, 98, 0.421);
+                background-color: rgba(165, 0, 0, 0.421);
                 border-radius: 3px;
             }
 
@@ -84,20 +84,20 @@
             <li><a target="_self" href="/registration" class="active">New user?<br>Register Here!</a></li>
         </ul>
 
-        <form action="home.html" method="post">
+        <form action="/" method="post">
             <div class="testdiv">  
                 <h1 style="text-decoration: none; margin-top: 3%; text-indent: 16%; color:rgb(179, 51, 51);">A new journey awaits.., let's get started!</h1>
                 
                 <div class="theform">
                 
                     <h2>What's your first name..?</h2>
-                    <input class="cnames" type="text" placeholder="Enter it here.." required>
+                    <input autofocus class="cnames" type="text" placeholder="Enter it here.." required>
                     <h2>Now what's your last name..?</h2>
                     <input class="cnames" type="text" placeholder="Are you a Stark by any chance..?" required>
                     <br>
                     <h2>What is your course..?</h2>
-                    <select required>
-                        <option value="none">Select</option>
+                    <select required style="color:rgba(9, 9, 4, 0.764)">
+                        <option disabled value="none";">Select</option>
                         <option value="CSE">Computer Science: Core</option>
                         <option value="CS">Cyber Security</option>
                         <option value="IT">Information Technology</option>
