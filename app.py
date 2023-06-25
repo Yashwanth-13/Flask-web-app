@@ -46,9 +46,20 @@ def home():
             the_names = cursor.execute("SELECT first_name, last_name FROM data WHERE data_id = ?", (user_id,),).fetchall()
             first_name = the_names[0][0]
             last_name = the_names[0][1]
+            user_db = sqlite3.connect("databases/current_user.db", check_same_thread=False)
+            user_cursor = user_db.cursor()
+            user_cursor.execute("INSERT INTO current_user (first_name, last_name) VALUES (?, ?)", (first_name, last_name,))
+            user_db.commit()
             return render_template("home.html", first_name=first_name, last_name=last_name)
         else:
             return render_template("invalid_login.html")
+    else:
+        user_db = sqlite3.connect("databases/current_user.db", check_same_thread=False)
+        user_cursor = user_db.cursor()
+        names = user_cursor.execute("SELECT first_name, last_name FROM current_user").fetchall()
+        first_name = names[0][0]
+        last_name = names[0][1]
+        return render_template("home.html", first_name=first_name, last_name=last_name)
     
 
 @app.route('/about')
