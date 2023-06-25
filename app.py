@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 import sqlite3
 
-db = sqlite3.connect("databases/info.db")
+db = sqlite3.connect("databases/info.db", check_same_thread=False)
 
 cursor = db.cursor()
 
@@ -15,12 +15,12 @@ def login():
 @app.route('/home', methods=["GET", "POST"])
 def home():
     if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
-        user_id = cursor.execute("SELECT id FROM credentials WHERE username = ? AND password = ?", (username, password),).fetchall()
+        user_name = request.form["username"]
+        pass_word = request.form["password"]
+        user_id = cursor.execute("SELECT id FROM credentials WHERE username = ? AND password = ?", (user_name, pass_word,),).fetchall()
         if user_id:
-            first_name, last_name = cursor.execute("SELECT first_name, last_name FROM data WHERE data_id = ?", (int(user_id),),).fetchall()
-            return render_template("home.html", {{ first_name }}, {{ last_name }})
+            first_name, last_name = cursor.execute("SELECT first_name, last_name FROM data WHERE data_id = ?", (user_id[0]),).fetchall()
+            return render_template("home.html", first_name=first_name, last_name=last_name)
         else:
             return render_template("invalid_login.html")
     
