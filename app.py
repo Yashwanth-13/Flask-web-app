@@ -16,14 +16,23 @@ def login():
         firstname = request.form.get("firstname")
         lastname = request.form.get("lastname")
         course = request.form.get("course")
-        gender  = request.form.get("gender")
+        gender  = request.form.get("Gender")
         phone = request.form.get("phone")
         if len(phone) != 10:
-            return render_template("invalid_register.html", invalid=phone)
+            return "<p>Invalid Phone number!</p>"
         email = request.form.get("email")
         values = ["@", ".com"]
-        if values not in email:
-            return render_template("invalid_register.html", invalid=email)
+        if not (values[0] in email and values[1] in email):
+            return "<p>Invalid Email!</p>"
+        username = request.form.get("username")
+        password = request.form.get("password")
+        reTypedPassword = request.form.get("re-typed")
+        if password != reTypedPassword:
+            return "<p>Passwords do not match!</p>"
+        cursor.execute("INSERT INTO credentials (username, password) VALUES (?, ?)", (username, password,))
+        cursor.execute("INSERT INTO data (data_id, first_name, last_name, gender, phone, mail, course) VALUES ((SELECT id FROM credentials WHERE username = ?), ?, ?, ?, ?, ?, ?)", (username, firstname, lastname, gender, phone, email, course,))
+        db.commit()
+        return render_template("login.html")
         
 
 @app.route('/home', methods=["GET", "POST"])
@@ -32,8 +41,11 @@ def home():
         user_name = request.form.get("username")
         pass_word = request.form.get("password")
         user_id = cursor.execute("SELECT id FROM credentials WHERE username = ? AND password = ?", (user_name, pass_word,),).fetchall()
+        user_id = user_id[0][0]
         if user_id:
-            first_name, last_name = cursor.execute("SELECT first_name, last_name FROM data WHERE data_id = ?", (user_id[0]),).fetchall()
+            the_names = cursor.execute("SELECT first_name, last_name FROM data WHERE data_id = ?", (user_id,),).fetchall()
+            first_name = the_names[0][0]
+            last_name = the_names[0][1]
             return render_template("home.html", first_name=first_name, last_name=last_name)
         else:
             return render_template("invalid_login.html")

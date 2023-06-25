@@ -176,14 +176,14 @@
                 <div class="theform">
                 
                     <h2>What's your first name..?</h2>
-                    <input autofocus class="cnames" type="text" required>
+                    <input name="firstname" autofocus class="cnames" type="text" required>
                     <h2>Now what's your last name..?</h2>
-                    <input class="cnames" type="text" required>
+                    <input name="lastname" class="cnames" type="text" required>
                     <h2>Username :</h2>
-                    <input class="cnames" type="text" required>
+                    <input name="username" class="cnames" type="text" required>
                     <br>
                     <h2>What is your course..?</h2>
-                    <select  required style="color:rgba(9, 9, 4, 0.764)">
+                    <select name="course" required style="color:rgba(9, 9, 4, 0.764)">
                         <option disabled value="none";>Select</option>
 
                         <option value="CSE">Computer Science: Core</option>
@@ -220,12 +220,10 @@
                         <span class="radi">Marathi</span>
                     </div>
     
-                    <h2>Phone Number: <span><br><input type="number" class="cnames" style="margin-left: 2px; width: 55%;" required></span></h2>
-    
-
+                    <h2>Phone Number: <span><br><input type="number" name="phone" class="cnames" style="margin-left: 2px; width: 55%;" required></span></h2>
                     <h2>Enter your e-mail: <span><br><input name="email" type="text" class="cnames" style="margin-left: 2px; width: 55%;" required></span></h2>
                     <h2>Create a password: <span><br><input name="password" type="password" class="cnames" style="margin-left: 2px; width: 55%;" required></span></h2>
-                    <h2>Re-type your password: <span><br><input type="password" class="cnames" style="margin-left: 2px; width: 55%;" required></span></h2>
+                    <h2>Re-type your password: <span><br><input name="re-typed" type="password" class="cnames" style="margin-left: 2px; width: 55%;" required></span></h2>
                     <br>
                     
                     <input type="submit"  class="but" required>
@@ -234,5 +232,6 @@
                 </div>
             </div>
         </form>
+
     </body>
 </html>
