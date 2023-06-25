@@ -29,7 +29,6 @@
                 margin-left: 13%;
                 height: 10px;
                 color: rgb(234, 227, 215);
-                font-size: 8px;
                 border-radius: 10px;
                 border-style: solid;
                 width: 35%;
@@ -74,30 +73,105 @@
                 width: 40%;
                 background-color: rgba(181, 126, 126, 0.421);
             }
-            @media (min-width: 280px) {
+            @media (min-width: 280px) and (max-width:420px) {
+                input.cnames{
+                   height: 10px;
+                   width: 65%;
+                }
+                h2{
+                    font-size: 10px;
+                }
+                h1{
+                    font-size: 20px;
+                    margin-left: -2%;
+                }
+                input[type=radio]{
+                    height: 7px;
+                }
+                .radi{
+                    font-size: 10px;
+                }
+                input[type=checkbox]{
+                    height: 7px;
+                }
+                .but{
+                    font-size: 10px;
+                }
+                ul{
+                    margin-left: 80%;
+                }
+                select{
+                    height: 20px;
+                    font-size: 10px;
+                    width: 100px;
+                }
+                input[type="submit"]{
+                    margin-left: 15%;
+                }
+            }
+            @media (min-width: 420px) and (max-width:750px) {
+                input.cnames{
+                   height: 15px;
+                   width: 65%;
+                }
                 h2{
                     font-size: 15px;
                 }
                 h1{
-                    font-size: 15px;
+                    font-size: 30px;
+                    margin-left: -3%;
                 }
-                
+                ul{
+                    margin-left: 85%;
+                }
+                select{
+                    height: 20px;
+                    font-size: 10px;
+                    width: 100px;
+                }
+                input[type="submit"]{
+                    margin-left: 25%;
+                }
             }
-            
+
+            @media (min-width: 750px){
+                input.cnames{
+                   height: 20px;
+                   width: 65%;
+                }
+                h2{
+                    font-size: 25px;
+                }
+                h1{
+                    font-size: 50px;
+                    margin-left: 2%;
+                }
+                ul{
+                    margin-left: 90%;
+                }
+                select{
+                    height: 30px;
+                    font-size: 20px;
+                    width: 300px;
+                }
+                input[type="submit"]{
+                    margin-left: 35%;
+                }
+
+            }
+        
         </style>
     </head>
     
     <body>
-         
-        <ul style="margin-top: 55%; height: 20%;">
-            <li><a target="_self" style="height: 0.1px;" href="/">Login!</a></li>
-            <br><br><br>
-            <li><a target="_self"  style="height: 0.1px;" href="/registration" class="active">New user?<br>Register Here!</a></li>
-        </ul>
-
+        
         <form action="/" method="post">
+            
+        <ul style="height: 5%; width: 60px; " >
+            <li><a href="/">Login!</a></li> 
+        </ul>
             <div class="testdiv">  
-                <h1 style="text-decoration: none; margin-left: -20%; margin-top: 3%; text-indent: 16%; color:rgb(179, 51, 51);">A new journey awaits.., let's get started!</h1>
+                <h1 style="text-decoration: none;  margin-top: 3%; text-indent: 16%; color:rgb(179, 51, 51);">Registration</h1>
                 
                 <div class="theform">
                 
@@ -105,9 +179,11 @@
                     <input autofocus class="cnames" type="text" required>
                     <h2>Now what's your last name..?</h2>
                     <input class="cnames" type="text" required>
+                    <h2>Username :</h2>
+                    <input class="cnames" type="text" required>
                     <br>
                     <h2>What is your course..?</h2>
-                    <select style="font-size:10px;height: 20px;" required style="color:rgba(9, 9, 4, 0.764)">
+                    <select  required style="color:rgba(9, 9, 4, 0.764)">
                         <option disabled value="none";>Select</option>
                         <option value="CSE">Computer Science: Core</option>
                         <option value="CS">Cyber Security</option>
@@ -121,11 +197,11 @@
     
                     <h2>Gender: </h2>
                     <div class="rad">
-                        <input type="radio" value="Male" class="radio" required>
+                        <input type="radio" name="Gender"  class="radio" required>
                         <span class="radi">Male</span><br>
-                        <input type="radio" value="Female" class="radio">
+                        <input type="radio" name="Gender"  class="radio">
                         <span class="radi">Female</span><br>
-                        <input type="radio" value="NULL" class="radio">
+                        <input type="radio" name="Gender" class="radio">
                         <span class="radi">Don't want to specify.</span>
                     </div> 
     
@@ -137,25 +213,24 @@
                         <span class="radi">Hindi</span><br>
                         <input type="checkbox" value="Kannada" class="radio">
                         <span class="radi">Kannada</span><br>
-                        <input type="checkbox" value="Tamil" class="radio">
+                        <input type="checkbox" value="Kannada" class="radio">
                         <span class="radi">Tamil</span><br>
-                        <input type="checkbox" value="Marathi" class="radio">
+                        <input type="checkbox" value="Kannada" class="radio">
                         <span class="radi">Marathi</span>
                     </div>
     
-                    <h2>Phone Number: <span><input type="number" class="cnames" size="10" style="margin-left: 2px;" required></span></h2>
+                    <h2>Phone Number: <span><br><input type="number" class="cnames" style="margin-left: 2px; width: 55%;" required></span></h2>
     
-                    <h2>Enter your e-mail: <span><input type="text" class="cnames" size="100" style="margin-left: 2px;" required></span></h2>
-                    <h2>Create a password: <span><input type="password" class="cnames" size="100" style="margin-left: 2px;" required></span></h2>
-                    <h2>Re-type your password: <span><input type="password" class="cnames" size="100" style="margin-left: 2px; width: 31%;" required></span></h2>
+                    <h2>Enter your e-mail: <span><br><input type="text" class="cnames" style="margin-left: 2px; width: 55%;" required></span></h2>
+                    <h2>Create a password: <span><br><input type="password" class="cnames" style="margin-left: 2px; width: 55%;" required></span></h2>
+                    <h2>Re-type your password: <span><br><input type="password" class="cnames" style="margin-left: 2px; width: 55%;" required></span></h2>
                     <br>
                     
-                    <input type="submit" class="but" style="margin-left: 25%;" required>
+                    <input type="submit"  class="but" required>
                     <input type="reset" class="but" required>
                     <br><br>
                 </div>
             </div>
         </form>
-        
     </body>
 </html>
