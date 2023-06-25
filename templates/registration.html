@@ -91,12 +91,12 @@
                 <div class="theform">
                 
                     <h2>What's your first name..?</h2>
-                    <input autofocus class="cnames" type="text" placeholder="Enter it here.." required>
+                    <input name="firstname" autofocus class="cnames" type="text" placeholder="Enter it here.." required>
                     <h2>Now what's your last name..?</h2>
-                    <input class="cnames" type="text" placeholder="Are you a Stark by any chance..?" required>
+                    <input name="lastname" class="cnames" type="text" placeholder="Are you a Stark by any chance..?" required>
                     <br>
                     <h2>What is your course..?</h2>
-                    <select required style="color:rgba(9, 9, 4, 0.764)">
+                    <select name="course" required style="color:rgba(9, 9, 4, 0.764)">
                         <option disabled value="none";">Select</option>
                         <option value="CSE">Computer Science: Core</option>
                         <option value="CS">Cyber Security</option>
@@ -110,11 +110,11 @@
     
                     <h2>Gender: </h2>
                     <div class="rad">
-                        <input type="radio" value="Male" class="radio" required>
+                        <input name="gender" type="radio" value="Male" class="radio" required>
                         <span class="radi">Male</span><br>
-                        <input type="radio" value="Female" class="radio">
-                        <span class="radi">Female</span><br>
-                        <input type="radio" value="NULL" class="radio">
+                        <input name="gender" type="radio" value="Female" class="radio">
+                        <span  class="radi">Female</span><br>
+                        <input name="gender" type="radio" value="None" class="radio">
                         <span class="radi">Don't want to specify.</span>
                     </div> 
     
@@ -132,10 +132,10 @@
                         <span class="radi">Marathi</span>
                     </div>
     
-                    <h2>Phone Number: <span><input type="number" class="cnames" size="10" style="margin-left: 2px;" required></span></h2>
+                    <h2>Phone Number: <span><input type="number" class="cnames" size="10" style="margin-left: 2px;" name="phone" required></span></h2>
     
                     <h2>Enter your e-mail: <span><input type="text" class="cnames" size="100" style="margin-left: 2px;" required></span></h2>
-                    <h2>Create a password: <span><input type="password" class="cnames" size="100" style="margin-left: 2px;" required></span></h2>
+                    <h2>Create a password: <span><input name="" type="password" class="cnames" size="100" style="margin-left: 2px;" required></span></h2>
                     <h2>Re-type your password: <span><input type="password" class="cnames" size="100" style="margin-left: 2px; width: 31%;" required></span></h2>
                     <br>
                     
