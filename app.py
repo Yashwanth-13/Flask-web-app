@@ -56,16 +56,15 @@ def home():
         user_name = request.form.get("username")
         pass_word = request.form.get("password")
         user_id = cursor.execute("SELECT id FROM credentials WHERE username = ? AND password = ?", (user_name, pass_word,),).fetchall()
-        user_id = user_id[0][0]
         if user_id:
-            the_names = cursor.execute("SELECT first_name, last_name FROM data WHERE data_id = ?", (user_id,),).fetchall()
+            the_names = cursor.execute("SELECT first_name, last_name FROM data WHERE data_id = ?", (user_id[0][0],),).fetchall()
             first_name = the_names[0][0]
             last_name = the_names[0][1]
-            cursor.execute("INSERT INTO current_user (first_name, last_name) VALUES (?, ?)", (first_name, last_name,))
+            cursor.execute("UPDATE current_user SET first_name = ?, last_name = ?", (first_name, last_name,))
             db.commit()
             return render_template("home.html", first_name=first_name, last_name=last_name)
         else:
-            return render_template("invalid_login.html")
+            return "<p>Invalid Username or Password!</p>"
     else:
         names = cursor.execute("SELECT first_name, last_name FROM current_user").fetchall()
         first_name = names[0][0]
