@@ -58,19 +58,25 @@ def home():
         user_id = cursor.execute("SELECT id FROM credentials WHERE username = ? AND password = ?", (user_name, pass_word,),).fetchall()
         if user_id:
             the_names = cursor.execute("SELECT first_name, last_name FROM data WHERE data_id = ?", (user_id[0][0],),).fetchall()
-            first_name = the_names[0][0]
-            last_name = the_names[0][1]
-            cursor.execute("UPDATE current_user SET first_name = ?, last_name = ?", (first_name, last_name,))
+            fi_name = the_names[0][0]
+            la_name = the_names[0][1]
+            cursor.execute('''UPDATE current_user SET first_name = ?, last_name = ? WHERE id = 1;''', (fi_name, la_name,))
             db.commit()
-            return render_template("home.html", first_name=first_name, last_name=last_name)
+            return render_template("home.html", first_name=fi_name, last_name=la_name)
         else:
             return "<p>Invalid Username or Password!</p>"
     else:
-        names = cursor.execute("SELECT first_name, last_name FROM current_user").fetchall()
-        first_name = names[0][0]
-        last_name = names[0][1]
-        return render_template("home.html", first_name=first_name, last_name=last_name)
+        names = cursor.execute("SELECT first_name, last_name FROM current_user WHERE id = 1").fetchall()
+        fi_name = names[0][0]
+        la_name = names[0][1]
+        return render_template("home.html", first_name=fi_name, last_name=la_name)
     
+
+@app.route('/logout')
+def logout():
+    cursor.execute("DELETE FROM current_user")
+    db.commit()
+    return render_template("login.html")
 
 @app.route('/about')
 def about():
