@@ -42,9 +42,17 @@ def login():
         if password != reTypedPassword:
             return "<p>Passwords do not match!</p>"
         
+        # Checking for the languages the user knows
+        languages = request.form.getlist("languages")
+        languages = ', '.join(languages)
+        if len(languages) == 0:
+            return "<p>Please select atleast one language!</p>"
+        
+
         # Adding the user to the database
         cursor.execute("INSERT INTO credentials (username, password) VALUES (?, ?)", (username, password,))
         cursor.execute("INSERT INTO data (data_id, first_name, last_name, gender, phone, mail, course) VALUES ((SELECT id FROM credentials WHERE username = ?), ?, ?, ?, ?, ?, ?)", (username, firstname, lastname, gender, phone, email, course,))
+        cursor.execute("INSERT INTO languages (language_id, language) VALUES ((SELECT id FROM credentials WHERE username = ?), ?)", (username, languages,))
         db.commit()
 
         return render_template("login.html")
@@ -66,26 +74,42 @@ def home():
         else:
             return "<p>Invalid Username or Password!</p>"
     else:
-        names = cursor.execute("SELECT first_name, last_name FROM current_user WHERE id = 1").fetchall()
-        fi_name = names[0][0]
-        la_name = names[0][1]
-        return render_template("home.html", first_name=fi_name, last_name=la_name)
+        # Checking if the user is already logged in
+        if not is_logged():
+            return render_template("login.html")
+        else:
+            names = cursor.execute("SELECT first_name, last_name FROM current_user WHERE id = 1").fetchall()
+            fi_name = names[0][0]
+            la_name = names[0][1]
+            return render_template("home.html", first_name=fi_name, last_name=la_name)
     
 
 @app.route('/logout')
 def logout():
-    cursor.execute("DELETE FROM current_user")
+    cursor.execute('''UPDATE current_user SET first_name = "NULL", last_name = "NULL" WHERE id = 1''')
     db.commit()
     return render_template("login.html")
 
 @app.route('/about')
 def about():
-    return render_template("about.html")
+    if is_logged():
+        return render_template("about.html")
+    else:
+        return render_template("login.html")
 
 @app.route('/contact')
 def contact():
-    return render_template("contact.html")
+    return render_template("contact.html")  
 
 @app.route('/registration', methods=["GET", "POST"])
 def registration():
     return render_template("registration.html")
+
+names = []
+def is_logged():
+    names = cursor.execute("SELECT first_name, last_name FROM current_user WHERE id = 1").fetchall()
+    for i in names[0]:
+        if i == "NULL":
+            return False
+    else:
+        return True
