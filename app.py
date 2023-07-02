@@ -8,6 +8,11 @@ cursor = db.cursor()
 
 app = Flask(__name__)
 
+@app.route('/registration', methods=["GET", "POST"])
+def registration():
+    return render_template("registration.html")
+
+
 @app.route('/', methods=["GET", "POST"])
 def login():
     if request.method == "GET":
@@ -89,6 +94,7 @@ def logout():
     cursor.execute('''UPDATE current_user SET first_name = "NULL", last_name = "NULL" WHERE id = 1''')
     db.commit()
     return render_template("login.html")
+
 
 @app.route('/about')
 def about():
