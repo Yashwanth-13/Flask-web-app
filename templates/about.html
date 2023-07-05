@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>About us</title>
+        <title>About You</title>
         <link rel="stylesheet" href="../static/styles/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
@@ -42,16 +42,21 @@
             <h1 style="text-decoration: none; padding-top: 5%;">About You: </h1>
 
             <ol class="data" style="padding-top: 5%; margin-left: 5%;">
-                <li>{{ username }} . {{ gender }}</li>
+                <li>Your name is {{ firstname }} {{ lastname}}</li>
                 <br>
-                <li>Languages u know:</li>
+                <li>Languages you know:</li>
                     <p style="margin-left: 14%;">
-                        {{ languages }}
+                        {% for language in languages %}
+                            <li>{{language}}</li>
+                        {%endfor%}
                     </p>
-                <li>studying {{ course }}</li>
-                <li>contact:</li>
+                <li>The course you are in: {{ course }}</li>
+                <br><br>
+                <li>Your contact:</li>
                     <p style="margin-left: 8%;">
                         {{ phone }}
+                        <br>
+                        {{ mail }}
                     </p>
             </ol>
         </div>

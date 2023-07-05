@@ -93,7 +93,21 @@ def logout():
 @app.route('/about')
 def about():
     if is_logged():
-        return render_template("about.html")
+        names = cursor.execute("SELECT first_name, last_name FROM current_user WHERE id = 1").fetchall()
+
+        # To get the languages
+        first_name = names[0][0]
+        last_name = names[0][1]
+        languages = cursor.execute("SELECT language FROM languages WHERE language_id = (SELECT id FROM credentials WHERE id = (SELECT data_id FROM data WHERE first_name = ? AND last_name = ?))", (first_name, last_name)).fetchall()
+        languages = languages[0]
+
+        #To get the other data
+        main_data = cursor.execute("SELECT phone, course, mail FROM data WHERE first_name = ? AND last_name = ?", (first_name, last_name)).fetchall()
+        print(main_data)
+        phone = main_data[0][0]
+        course = main_data[0][1]
+        mail = main_data[0][2]
+        return render_template("about.html", languages=languages, phone=phone, course=course, mail=mail )
     else:
         return render_template("login.html")
 
