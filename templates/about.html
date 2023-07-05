@@ -47,16 +47,16 @@
                 <li>Languages you know:</li>
                     <p style="margin-left: 14%;">
                         {% for language in languages %}
-                            <li>{{language}}</li>
+                            {language}<br>
                         {%endfor%}
                     </p>
                 <li>The course you are in: {{ course }}</li>
                 <br><br>
                 <li>Your contact:</li>
                     <p style="margin-left: 8%;">
-                        {{ phone }}
+                        Phone: {{ phone }}
                         <br>
-                        {{ mail }}
+                        E-mail: {{ mail }}
                     </p>
             </ol>
         </div>
