@@ -107,7 +107,7 @@ def about():
         phone = main_data[0][0]
         course = main_data[0][1]
         mail = main_data[0][2]
-        return render_template("about.html", languages=languages, phone=phone, course=course, mail=mail )
+        return render_template("about.html", languages=languages, phone=phone, course=course, mail=mail, firstname=first_name, lastname=last_name )
     else:
         return render_template("login.html")
 
