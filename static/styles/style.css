@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     background-image: url("../bg.jpg");
@@ -35,7 +34,6 @@ ul {
 }
 
 .testdiv h1, h2 {
-    text-decoration: underline;
     padding-left: 10px;
     color: rgb(210, 156, 86);
 }
@@ -44,10 +42,6 @@ ol {
     color: rgba(0, 255, 217, 0.738);
     list-style-type: circle;
     font-size: larger;
-}
-
-li a.top {
-    margin-top: 10px;
 }
 
 li a {

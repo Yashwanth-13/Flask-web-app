@@ -3,24 +3,56 @@
     <head>
         <title>About us</title>
         <link rel="stylesheet" href="../static/styles/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @media (min-width: 450px) and (max-width: 600px) {
+                ul{
+                    font-size: 18px;
+                    width: 100px;
+                    margin-top: 100px;
+                }
+            }
+            
+            @media (min-width: 280px) and (max-width: 450px) {
+                ul{
+                    font-size: 12px;
+                    width: 80px;
+                    margin-top: 100px;
+                }
+                .testdiv{
+                    margin-left: 20%;
+                }
+            }
+            @media (min-width: 600px) {
+                ul{
+                    margin-top: 100px;
+                }
+            }
+        </style>
     </head>
 
     <body>
-        <ul style="margin-top: 5%;">
-            <li><a target="_self" href="/home" class="top">Home</a></li>
-            <li><a target="_self" href="/about" class="active">About us...</a></li>
+        <ul>
+            <li><a target="_self" href="/home">Home</a></li>
+            <li><a target="_self" href="/about" class="active">About You..</a></li>
             <li><a target="_self" href="/contact">Issue with something..?<br>Contact us!</a></li>
             <li><a target="_self" href="/logout">Logout</a></li>
         </ul>
         <div class="testdiv">
-            <h1 style="text-decoration: none; padding-top: 5%;">These are what we want to achieve this year: </h1>
+            <h1 style="text-decoration: none; padding-top: 5%;">About You: </h1>
 
             <ol class="data" style="padding-top: 5%; margin-left: 5%;">
-                <li>Make the website more appealing to new users.</li>
+                <li>{{ username }} . {{ gender }}</li>
                 <br>
-                <li>Help people to get access to various resources by organizing them in an order.</li> <br>
-                <li>Cover a broad range of topics and create a discussion thread so that people can come together and share knowledge.</li><br>
-                <li>Make all these things available for free!</li>
+                <li>Languages u know:</li>
+                    <p style="margin-left: 14%;">
+                        {{ languages }}
+                    </p>
+                <li>studying {{ course }}</li>
+                <li>contact:</li>
+                    <p style="margin-left: 8%;">
+                        {{ phone }}
+                    </p>
             </ol>
         </div>
     </body>
