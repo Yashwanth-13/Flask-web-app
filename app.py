@@ -1,16 +1,10 @@
 from flask import Flask, request, render_template
 import sqlite3
 
+app = Flask(__name__)
 db = sqlite3.connect("databases/info.db", check_same_thread=False)
 
 cursor = db.cursor()
-
-
-app = Flask(__name__)
-
-@app.route('/registration', methods=["GET", "POST"])
-def registration():
-    return render_template("registration.html")
 
 
 @app.route('/', methods=["GET", "POST"])
