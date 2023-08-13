@@ -47,6 +47,7 @@ def login():
         if len(languages) == 0:
             return "<p>Please select atleast one language!</p>"
         
+        
 
         # Adding the user to the database
         cursor.execute("INSERT INTO credentials (username, password) VALUES (?, ?)", (username, password,))
