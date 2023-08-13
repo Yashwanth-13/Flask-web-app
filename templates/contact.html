@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/styles/style.css">
+        <title>Contact Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @media (min-width: 450px) and (max-width: 600px) {
+                ul{
+                    font-size: 18px;
+                    width: 100px;
+                    margin-top: 100px;
+                }
+                .testdiv{
+                    margin-left: 25%;
+                }
+            }
+            
+            @media (min-width: 280px) and (max-width: 450px) {
+                ul{
+                    font-size: 14px;
+                    width: 80px;
+                    margin-top: 100px;
+                }
+                .testdiv{
+                    margin-left: 25%;
+                }
+            }
+            @media (min-width: 600px) {
+                ul{
+                    margin-top: 100px;
+                }
+                .testdiv{
+                    font-size: 20px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <ul style="margin-top: 5%;">
+            <li><a target="_self" href="/home" class="top">Home</a></li>
+            <li><a target="_self" href="/about">About You</a></li>
+            <li><a target="_self" href="/contact" class="active">Issue with something..?<br>Contact us!</a></li>
+            <li><a target="_self" href="/logout">Logout</a></li>
+        </ul>
+
+        <div class="testdiv">
+            <h2 style="text-decoration: none; color:blanchedalmond">Please reach out to us if the resource links are broken or if there's any other issue: </h2>
+            <p >Write us an e-mail, <a class="link" href="mailto:unohana.kenpachi26@gmail.com">here.</a></p>
+            
+            <p style="padding-left: 4%;" >Reach out to the respective resource owners:
+                <p >For the TCP/IP guide owners, <a target="_blank" href="http://www.tcpipguide.com/contact.htm" class="link">click here.</a></p>
+                <p >For the Shell Scripting resource owners, <a target="_blank" class="link" href="https://www.tutorialspoint.com/about/contact_us.htm">click here.</a></p>
+            </p>
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        	.inputbox {
+        		
+        		margin-left: 35%;
+        		margin-right: 35%;
+        		margin-top: 12%;
+        		border-radius: 10px;
+        		background-color: #452a2a8f;
+        		border-width: 40%;	
+        		border-style: none;
+        	}
+        	
+        	div input {
+        		border-style: solid;
+        		margin-left : 7%;
+				height: 25px;
+        		border-radius: 10px;
+        	}
+        	
+        	.seperate {
+        		margin-left: 45%;
+        		border-radius: 10px;
+        		margin-top: 1%;
+        		color: rgb(177, 132, 255);
+        		background-color: #452a2a2e;
+        		font-size: 16px;
+        		border: 1px;
+        	}
+        	
+        	.seperate:hover {
+        		background-color: #452a2ab9;
+        	}
+        	
+        	p {
+        		text-decoration: none;
+        		font-size: 18px;
+        		color: orange;
+        		padding-left: 3%;
+        	}
+
+			#max{
+				width: 300px;
+			}
+			@media (min-width:520px) and (max-width : 1070px)   {
+				#max {width: 240px;}
+				
+				.inputbox {
+        		margin-left: 25%;
+        		margin-right: 25%;
+				}
+				
+				.seperate {
+        		margin-left: 35%;
+				}
+			}
+			@media (min-width: 300px) and (max-width :520px )   {
+				#max {width: 180px;}
+				
+				.inputbox {
+        		margin-left: 15%;
+        		margin-right: 15%;
+				}
+				
+				.seperate {
+        		margin-left: 30%;
+				}
+
+			}
+			
+			@media (max-width: 300px){
+				#max {width: 150px;}
+				
+				.inputbox {
+        		margin-left: 7%;
+        		margin-right: 7%;
+				}
+				
+				.seperate {
+        		margin-left:20%;
+				}
+
+			}
+        </style>
+        <link rel="stylesheet" href="../static/styles/style.css">
+    </head>
+
+    <body>
+
+<form action="/home", method="post">
+	<div class="inputbox">
+		<h1 style="text-align: center; font-size: 23px; color: orange; padding-top: 4%;">Welcome back!</h1>
+		<p style="padding-top: 4%;">Username :</p>
+		<input autocomplete="off" type="text" placeholder="It goes here..." id="max" name="username">
+		<br>
+		<p>Password : </p>
+		<input type="password" placeholder="This one goes here though.." id="max" name="password">
+		<br><br><br><br>
+	</div>
+
+	<input type="submit" class="seperate" value="Submit" style="border-style: solid; height: 35px;">
+	<input type="reset" class="seperate" value="Reset" style="border-style: solid; margin-left: 2%; height: 35px; ">
+
+</form>
+
+	<p style="text-align: center; padding-right: 2%;">Not an existing user? <a href="/registration" style="color: rgb(210, 156, 86);">Register Here</a></p>
+
+    </body>
+</html>
